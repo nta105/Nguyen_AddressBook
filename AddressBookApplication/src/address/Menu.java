@@ -1,70 +1,69 @@
-// Menu.java
 package address;
 
 /**
- * Menu class has methods to generate prompts for user input regarding a Contact's information.
+ * Provides user input prompts for Contact information in an Address Book application.
  */
 public class Menu {
 
     /**
-     * Generates a standard output prompt for entering the First Name.
-     * @return The prompt for entering the First Name.
+     * Prompt for first name.
+     * @return Prompt string.
      */
     public String prompt_FirstName() {
         return "First Name:";
     }
 
     /**
-     * Generates a standard output prompt for entering the Last Name.
-     * @return The prompt for entering the Last Name.
+     * Prompt for last name.
+     * @return Prompt string.
      */
     public static String prompt_LastName() {
         return "Last Name:";
     }
 
     /**
-     * Generates a standard output prompt for entering the Street.
-     * @return The prompt for entering the Street.
+     * Prompt for street address.
+     * @return Prompt string.
      */
     public static String prompt_Street() {
         return "Street:";
     }
 
     /**
-     * Generates a standard output prompt for entering the City.
-     * @return The prompt for entering the City.
+     * Prompt for city.
+     * @return Prompt string.
      */
     public static String prompt_City() {
         return "City:";
     }
 
     /**
-     * Generates a standard output prompt for entering the State.
-     * @return The prompt for entering the State.
+     * Prompt for state.
+     * @return Prompt string.
      */
     public static String prompt_State() {
         return "State:";
     }
 
     /**
-     * Generates a standard output prompt for entering the Zip Code.
-     * @return The prompt for entering the Zip Code.
+     * Prompt for zip code.
+     * @return Prompt string.
      */
     public static String prompt_Zip() {
         return "Zip:";
     }
 
     /**
-     * Generates a standard output prompt for entering the Telephone number.
-     * @return The prompt for entering the Telephone number.
+     * Prompt for telephone number.
+     * @return Prompt string.
      */
     public static String prompt_Telephone() {
         return "Telephone:";
     }
 
     /**
-     * Generates a standard output prompt for entering the Email address.
-     * @return The prompt for entering the Email address.
+     * Prompt for email address.
+     * @return Prompt string.
      */
     public static String prompt_Email() {
         return "Email:";
