@@ -1,9 +1,5 @@
 package address.data;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 public class AddressBookTest {
 
     public static void main(String[] args) {
