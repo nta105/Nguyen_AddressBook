@@ -1,36 +1,51 @@
 package address.data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
-/**
- * The AddressBook class represents a collection of AddressEntry objects.
- * It provides functionality to add entries and list all entries.
- */
 public class AddressBook {
-    private List<AddressEntry> addressEntryList;
+    private final TreeMap<String, TreeSet<AddressEntry>> addressEntryList = new TreeMap<>();
 
-    /**
-     * Constructs an empty AddressBook.
-     */
-    public AddressBook() {
-        this.addressEntryList = new ArrayList<>();
+    public void add(AddressEntry entry) {
+        addressEntryList.putIfAbsent(entry.getLastName(), new TreeSet<>(Comparator.comparing(AddressEntry::getFirstName)));
+        addressEntryList.get(entry.getLastName()).add(entry);
     }
 
-    /**
-     * Adds an AddressEntry to the AddressBook.
-     * @param entry The AddressEntry to be added.
-     */
-    public void addAddressEntry(AddressEntry entry) {
-        addressEntryList.add(entry);
-    }
-
-    /**
-     * Prints all the AddressEntry objects in the AddressBook to the console.
-     */
     public void list() {
-        for (AddressEntry entry : addressEntryList) {
-            System.out.println(entry.toString());
+        for (Map.Entry<String, TreeSet<AddressEntry>> entry : addressEntryList.entrySet()) {
+            for (AddressEntry ae : entry.getValue()) {
+                System.out.println(ae);
+            }
         }
+    }
+
+    public void remove(String lastName) {
+        // This method might need to be more complex to handle multiple people with the same last name
+        addressEntryList.remove(lastName);
+    }
+
+    public void readFromFile(String filename) {
+        try (Scanner fileScanner = new Scanner(new File(filename))) {
+            while (fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine();
+                // Assuming file format matches constructor order
+                String[] parts = line.split(",");
+                AddressEntry entry = new AddressEntry(parts[0], parts[1], parts[2], parts[3], parts[4], Integer.parseInt(parts[5]), parts[6], parts[7]);
+                add(entry);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found: " + filename);
+        }
+    }
+
+    public TreeSet<AddressEntry> find(String startOf_lastname) {
+        TreeSet<AddressEntry> results = new TreeSet<>(Comparator.comparing(AddressEntry::getFirstName));
+        for (String key : addressEntryList.keySet()) {
+            if (key.startsWith(startOf_lastname)) {
+                results.addAll(addressEntryList.get(key));
+            }
+        }
+        return results;
     }
 }
