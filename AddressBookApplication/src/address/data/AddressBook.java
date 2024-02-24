@@ -27,12 +27,16 @@ public class AddressBook {
      * Each entry is printed on a new line.
      */
     public void list() {
+        int counter = 1;
         for (Map.Entry<String, TreeSet<AddressEntry>> entry : addressEntryList.entrySet()) {
             for (AddressEntry ae : entry.getValue()) {
-                System.out.println(ae);
+                System.out.println("#" + counter + " " + ae);
+                System.out.println();
+                counter++;
             }
         }
     }
+
 
     /**
      * Removes all entries with the specified last name from the address book.

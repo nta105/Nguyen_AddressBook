@@ -35,12 +35,14 @@ public class Menu {
     public void displayMenu() {
         String choice;
         do {
-            out.println("\na) Load entries from a file");
+            out.println("\n**************************");
+            out.println("a) Load entries from a file");
             out.println("b) Add an entry");
             out.println("c) Remove an entry");
             out.println("d) Find entries");
             out.println("e) List all entries");
             out.println("f) Quit");
+            out.println("**************************");
             out.print("Choose an option: ");
             choice = scanner.nextLine();
 
