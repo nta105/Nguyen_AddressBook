@@ -17,7 +17,7 @@ public class Menu {
     public void displayMenu() {
         String choice;
         do {
-            System.out.println("a) Load entries from a file");
+            System.out.println("\na) Load entries from a file");
             System.out.println("b) Add an entry");
             System.out.println("c) Remove an entry");
             System.out.println("d) Find entries");
