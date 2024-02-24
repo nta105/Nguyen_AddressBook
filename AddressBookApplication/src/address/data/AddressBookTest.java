@@ -73,6 +73,10 @@ public class AddressBookTest {
         TreeSet<AddressEntry> brownEntries = addressBook.find("Brown");
         assertFalse("AddressBook should contain entries for Brown", brownEntries.isEmpty());
         assertEquals("Should find one entry for Brown", 1, brownEntries.size());
+
+        TreeSet<AddressEntry> johnsonEntries = addressBook.find("Johnson");
+        assertFalse("AddressBook should contain entries for Johnson", johnsonEntries.isEmpty());
+        assertEquals("Should find one entry for Johnson", 1, johnsonEntries.size());
     }
     /**
      * Tests the listing function of AddressBook, ensuring the correct entries are printed to the console.
@@ -87,10 +91,10 @@ public class AddressBookTest {
         addressBook.list(); // This method prints to System.out, which we've redirected to outputStreamCaptor
 
         String output = outputStreamCaptor.toString();
-        assertTrue("The output should contain the last name Smith.",output.contains("Smith"));
-        assertTrue( "The output should contain the last name Doe.", output.contains("Doe"));
-        assertTrue("The output should contain the first name John.",output.contains("John"));
-        assertTrue( "The output should contain the first name Jane.",output.contains("Jane"));
+        assertTrue("The output should contain the first name Smith.",output.contains("Smith"));
+        assertTrue( "The output should contain the first name Doe.", output.contains("Doe"));
+        assertTrue("The output should contain the last name John.",output.contains("John"));
+        assertTrue( "The output should contain the last name Jane.",output.contains("Jane"));
     }
 
     /**
